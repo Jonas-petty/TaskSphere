@@ -11,6 +11,7 @@ function LabeledInput(props) {
                 text={props.label}
             />
             <Input
+                id={props.id}
                 type={props.type}
                 placeholder={props.placeholder}
             />
