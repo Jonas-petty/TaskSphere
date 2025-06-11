@@ -1,0 +1,9 @@
+button {
+    color: #F4F7FE;
+    background-color: #645FC6;
+    border-radius: 25rem;
+}
+
+button:hover {
+    border: 1px solid #F4F7FE;
+}
