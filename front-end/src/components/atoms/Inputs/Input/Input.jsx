@@ -6,6 +6,7 @@ function Input(props) {
             id={props.id}
             type={props.type}
             placeholder={props.placeholder}
+            required
         />
     );
 }
