@@ -14,6 +14,8 @@ function LabeledInput(props) {
                 id={props.id}
                 type={props.type}
                 placeholder={props.placeholder}
+                value={props.value}
+                onChange={props.onChange}
             />
         </div>
     );

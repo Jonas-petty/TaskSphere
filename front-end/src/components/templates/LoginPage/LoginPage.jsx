@@ -1,12 +1,15 @@
-import LoginForm from "../../organisms/Forms/LoginForm/LoginForm"
+import LoginForm from "../../organisms/Forms/LoginForm/LoginForm";
 
-import "./LoginPage.css"
+import { Link } from "react-router";
+
+import "./LoginPage.css";
 
 function LoginPage(props) {
     return (
-        <>
-            <LoginForm/>
-        </>
+        <div className="login-page-container">
+            <LoginForm />
+            <Link to="/signup">Sign Up</Link>
+        </div>
     );
 }
 
