@@ -4,3 +4,9 @@
     align-items: center;
     justify-content: center;
 }
+
+.login-page-container h1 {
+    color: #f4f7fe;
+    font-size: 3rem;
+    margin: 1rem 0;
+}
