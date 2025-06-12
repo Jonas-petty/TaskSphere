@@ -8,5 +8,6 @@ button {
 }
 
 button:hover {
+    cursor: pointer;
     border: 1px solid #F4F7FE;
 }
