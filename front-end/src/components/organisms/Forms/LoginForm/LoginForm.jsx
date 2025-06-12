@@ -5,6 +5,7 @@ import "./LoginForm.css";
 import { use, useState } from "react";
 
 function LoginForm(props) {
+    const [invalidData, setInvalidData] = useState(false)
     const [userData, setUserData] = useState({
         email: "",
         password: "",
@@ -24,7 +25,7 @@ function LoginForm(props) {
                 if (userMatch) {
                     alert("User found")
                 } else {
-                    alert("user not found")
+                    setInvalidData(prev => !prev)
                 }
             })
             .catch((err) => console.log(err));
@@ -36,7 +37,7 @@ function LoginForm(props) {
 
     return (
         <div className="FormContainer">
-            <form action={handleSubmit}>
+            <form className={!invalidData ? "" : "invalid"} action={handleSubmit}>
                 <h1>TaskSphere</h1>
                 <LabeledInput
                     id="email"
@@ -55,6 +56,8 @@ function LoginForm(props) {
                     value={userData.password}
                     onChange={(value) => handleChange("password", value)}
                 />
+
+                <p className="form-description">{!invalidData ? "" : "Usuário não econtrando, tente novamente."}</p>
 
                 <DefaultButton type="submit" text="Confirmar" />
             </form>

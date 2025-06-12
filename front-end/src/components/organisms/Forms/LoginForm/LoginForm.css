@@ -16,3 +16,12 @@
 .FormContainer input {
     width: 400px;
 }
+
+
+.invalid input {
+    border: 1px solid #EA868F;
+}
+
+.form-description {
+    color: #EA868F;
+}
