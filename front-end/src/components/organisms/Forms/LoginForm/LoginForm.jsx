@@ -5,7 +5,7 @@ import "./LoginForm.css";
 import { use, useState } from "react";
 
 function LoginForm(props) {
-    const [invalidData, setInvalidData] = useState(false)
+    const [invalidData, setInvalidData] = useState(false);
     const [userData, setUserData] = useState({
         email: "",
         password: "",
@@ -23,9 +23,9 @@ function LoginForm(props) {
                 });
 
                 if (userMatch) {
-                    alert("User found")
+                    alert("User found");
                 } else {
-                    setInvalidData(prev => !prev)
+                    setInvalidData((prev) => !prev);
                 }
             })
             .catch((err) => console.log(err));
@@ -37,7 +37,10 @@ function LoginForm(props) {
 
     return (
         <div className="FormContainer">
-            <form className={!invalidData ? "" : "invalid"} action={handleSubmit}>
+            <form
+                className={!invalidData ? "" : "invalid"}
+                action={handleSubmit}
+            >
                 <h1>TaskSphere</h1>
                 <LabeledInput
                     id="email"
@@ -57,7 +60,11 @@ function LoginForm(props) {
                     onChange={(value) => handleChange("password", value)}
                 />
 
-                <p className="form-description">{!invalidData ? "" : "Usuário não econtrando, tente novamente."}</p>
+                <p className="form-description">
+                    {!invalidData
+                        ? ""
+                        : "Usuário não econtrando, tente novamente."}
+                </p>
 
                 <DefaultButton type="submit" text="Confirmar" />
             </form>
