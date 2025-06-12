@@ -2,9 +2,11 @@ import LabeledInput from "../../../molecules/Input/Input";
 import DefaultButton from "../../../atoms/Buttons/Default/DefaultButton";
 
 import "./LoginForm.css";
-import { use, useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 
 function LoginForm(props) {
+    const navigate = useNavigate();
     const [invalidData, setInvalidData] = useState(false);
     const [userData, setUserData] = useState({
         email: "",
@@ -23,7 +25,7 @@ function LoginForm(props) {
                 });
 
                 if (userMatch) {
-                    alert("User found");
+                    navigate("/home");
                 } else {
                     setInvalidData((prev) => !prev);
                 }
