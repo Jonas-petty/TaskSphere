@@ -1,7 +1,10 @@
 button {
+    font-size: 1rem;
     color: #F4F7FE;
     background-color: #645FC6;
+    border: 1px solid #645FC6;
     border-radius: 25rem;
+    padding: .5rem 1rem;
 }
 
 button:hover {
