@@ -1,13 +1,13 @@
-button {
+.default-button {
     font-size: 1rem;
-    color: #F4F7FE;
-    background-color: #645FC6;
-    border: 1px solid #645FC6;
+    color: #f4f7fe;
+    background-color: #645fc6;
+    border: 1px solid #645fc6;
     border-radius: 25rem;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
 }
 
-button:hover {
+.default-button:hover {
     cursor: pointer;
-    border: 1px solid #F4F7FE;
+    border: 1px solid #f4f7fe;
 }

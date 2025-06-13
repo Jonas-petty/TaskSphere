@@ -1,9 +1,11 @@
-import './DefaultButton.css'
+import "./DefaultButton.css";
 
-function DefaultButton(props) {
-    return ( 
-        <button type={props.type}>{props.text}</button>
-     );
+function DefaultButton({ type = "button", text = "button content" }) {
+    return (
+        <button className="default-button" type={type}>
+            {text}
+        </button>
+    );
 }
 
 export default DefaultButton;
