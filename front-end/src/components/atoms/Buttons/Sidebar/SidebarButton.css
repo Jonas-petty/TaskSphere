@@ -14,4 +14,9 @@
 .active {
     color: #edebff;
     background-color: #645fc6;
+    
+}
+
+.active:hover {
+    border: 1px solid #edebff;
 }
