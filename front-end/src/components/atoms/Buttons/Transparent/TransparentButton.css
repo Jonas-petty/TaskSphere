@@ -1,0 +1,17 @@
+.transparent-button {
+    color: #645FC6;
+    background-color: transparent;
+    font-size: 1rem;
+    text-align: left;
+    width: 100%;
+    margin-left: -1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 0 2rem 2rem 0;
+}
+
+.transparent-button:hover {
+    background-color: #FEFFFD;
+    cursor: pointer;
+    
+}
