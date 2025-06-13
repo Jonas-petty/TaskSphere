@@ -1,0 +1,48 @@
+.dashboard-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;;
+
+    flex: 500px 100px;
+}
+
+.sidebar {
+    min-width: 200px;
+    max-width: 500px;
+    border: 1px solid white;
+    flex: 1;
+    
+}
+
+.main-content-container {
+
+    flex: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    border: 1px solid white;
+    padding: 1rem;
+    
+}
+
+.main-content {
+    background-color: aqua;
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+
+}
+
+.todo,
+.doing,
+.done {
+    background-color: brown;
+    border: 1px solid white;
+    max-width: 300px;
+    flex: 1;
+    gap: 1rem;
+}
