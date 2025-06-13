@@ -8,11 +8,7 @@
 }
 
 .sidebar {
-    min-width: 200px;
-    max-width: 500px;
-    border: 1px solid white;
-    flex: 1;
-    
+    flex: 1;  
 }
 
 .main-content-container {
@@ -23,11 +19,11 @@
     flex-direction: column;
 }
 
-.header {
+/* .header {
     border: 1px solid white;
     padding: 1rem;
     
-}
+} */
 
 .main-content {
     background-color: aqua;

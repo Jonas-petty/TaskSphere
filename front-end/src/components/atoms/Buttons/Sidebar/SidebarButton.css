@@ -1,0 +1,17 @@
+.sidebar-button {
+    cursor: pointer;
+    font-size: 1rem;
+    color: #878d9d;
+    background-color: transparent;
+    border: 1px solid transparent;
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 1rem;
+    margin-left: -1rem;
+    border-radius: 0 2rem 2rem 0;
+}
+
+.active {
+    color: #edebff;
+    background-color: #645fc6;
+}
