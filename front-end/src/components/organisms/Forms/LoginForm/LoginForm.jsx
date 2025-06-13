@@ -25,7 +25,7 @@ function LoginForm(props) {
                 });
 
                 if (userMatch) {
-                    navigate("/home");
+                    navigate("/dashboard");
                 } else {
                     setInvalidData((prev) => !prev);
                 }
