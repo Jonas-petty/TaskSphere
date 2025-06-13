@@ -25,6 +25,7 @@ function LoginForm(props) {
                 });
 
                 if (userMatch) {
+                    localStorage.setItem("userId", userMatch.id)
                     navigate("/dashboard");
                 } else {
                     setInvalidData((prev) => !prev);
