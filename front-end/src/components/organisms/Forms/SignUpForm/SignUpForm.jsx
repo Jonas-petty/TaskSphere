@@ -1,4 +1,4 @@
-import LabeledInput from "../../../molecules/Input/Input";
+import LabeledInput from "../../../molecules/LabeledInput/LabeledInput";
 import DefaultButton from "../../../atoms/Buttons/Default/DefaultButton";
 
 import "./SignUpForm.css";
