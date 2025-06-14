@@ -1,6 +1,6 @@
 import Select from "react-select";
 
-function DropDown({ id, items, onClick }) {
+function DropDown({ id, items, onChange }) {
     const options = items.map((item) => ({
         value: item.name,
         label: item.name,
@@ -16,6 +16,7 @@ function DropDown({ id, items, onClick }) {
             inputId={id}
             isMulti={true}
             options={sortedOptions}
+            onChange={(selectedOptions) => onChange(selectedOptions)}
             styles={{
                 control: (baseStyles, state) => ({
                     ...baseStyles,
