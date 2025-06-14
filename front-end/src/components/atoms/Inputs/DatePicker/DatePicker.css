@@ -1,0 +1,19 @@
+.datepicker {
+    outline: none;
+    width: 100%;
+    color: #f4f7fe;
+    font-size: 1rem;
+    background-color: #2c2c38;
+    border: 1px solid #3f3f4b;
+    border-radius: 0.2rem;
+    padding: 0.5rem 0.9rem;
+}
+
+.datepicker:hover {
+    border: 1px solid #f4f7fe;
+}
+
+.datepicker:focus {
+    outline: none;
+    border: 1px solid #f4f7fe;
+}
