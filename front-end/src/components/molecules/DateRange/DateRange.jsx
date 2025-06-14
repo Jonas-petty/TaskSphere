@@ -7,11 +7,26 @@ function DateRange({
     endId,
     startLabel = "Começo",
     endLabel = "Fim",
+    startValue,
+    endValue,
+    startOnChange,
+    endOnChange
 }) {
     return (
         <div className="data-range-container">
-            <LabeledDatePicker id={startId} label={startLabel} />
-            <LabeledDatePicker id={endId} label={endLabel} />
+            <LabeledDatePicker
+                id={startId}
+                label={startLabel}
+                value={startValue}
+                onChange={startOnChange}
+            />
+            <LabeledDatePicker
+                id={endId}
+                label={endLabel}
+                value={endValue}
+                minDate={startValue}
+                onChange={endOnChange}
+            />
         </div>
     );
 }
