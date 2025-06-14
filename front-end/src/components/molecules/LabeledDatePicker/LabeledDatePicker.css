@@ -1,0 +1,7 @@
+.labeled-datepicker-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    color-scheme: dark;
+}
