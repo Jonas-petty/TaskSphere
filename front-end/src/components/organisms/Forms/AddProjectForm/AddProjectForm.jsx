@@ -7,7 +7,7 @@ import DefaultButton from "../../../atoms/Buttons/Default/DefaultButton";
 
 import "./AddProjectForm.css";
 
-function AddProjectForm({ IsOpen, handleCloseModal }) {
+function AddProjectForm({ IsOpen, handleCloseModal, setProjects }) {
     const [newProject, setNewProject] = useState({
         name: "",
         description: "",
@@ -58,6 +58,7 @@ function AddProjectForm({ IsOpen, handleCloseModal }) {
 
         fetch("http://localhost:3000/projects", options).then((res) => {
             if (res.ok) {
+                setProjects((prev) => [...prev, updatedNewProject]);
                 handleCloseModal();
             }
         });
