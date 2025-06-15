@@ -8,6 +8,7 @@ import {
     useSensors,
 } from "@dnd-kit/core";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
+import {restrictToWindowEdges} from "@dnd-kit/modifiers"
 import TasksColumn from "../TasksColumn/TasksColumn";
 
 function TasksContainer({ tasks, setTasks }) {
@@ -41,6 +42,7 @@ function TasksContainer({ tasks, setTasks }) {
 
     return (
         <DndContext
+            modifiers={[restrictToWindowEdges]}
             sensors={sensors}
             collisionDetection={closestCorners}
             onDragEnd={handleDragEnd}
