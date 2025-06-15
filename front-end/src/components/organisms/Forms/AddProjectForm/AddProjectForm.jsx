@@ -4,6 +4,7 @@ import LabeledTextArea from "../../../molecules/LabeledTextArea/LabeledTextArea"
 import DateRange from "../../../molecules/DateRange/DateRange";
 import LabeledDropDown from "../../../molecules/LabeledDropDown/LabeledDropDown";
 import DefaultButton from "../../../atoms/Buttons/Default/DefaultButton";
+import ModalHeader from "../../../atoms/Headers/ModalHeader/ModalHeader";
 
 import "./AddProjectForm.css";
 
@@ -66,10 +67,10 @@ function AddProjectForm({ IsOpen, handleCloseModal, setProjects }) {
 
     return (
         <form className="add-project-form" action={handleSubmit}>
-            <h3>Adicionar Novo Projeto</h3>
+            <ModalHeader text="Adicionar Novo Projeto"/>
             <LabeledInput
                 id="title"
-                label="Title"
+                label="Título"
                 type="text"
                 placeholder="e.g. Lancamento da Plataforma"
                 value={newProject.name}
