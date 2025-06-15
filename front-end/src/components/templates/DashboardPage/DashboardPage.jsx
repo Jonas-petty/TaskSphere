@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import Header from "../../organisms/Header/Header";
 import Sidebar from "../../organisms/Sidebar/Sidebar";
+import Modal from "../Modal/Modal";
 
 import "./DashboardPage.css";
 
 function DashboardPage(props) {
     const [projects, setProjects] = useState([]);
+    const [modalsList, setModalsList] = useState({
+        projectModalIsVisible: false,
+    });
+
     const [currentActiveProject, setCurrentActiveProject] = useState({
         id: "",
         name: "",
@@ -34,8 +39,13 @@ function DashboardPage(props) {
         setCurrentActiveProject(newActiveProject);
     }
 
-    // console.log(projects);
-    // console.log(currentActiveProject);
+    function handleCloseModal() {
+        setModalsList((prev) => ({ ...prev, projectModalIsVisible: false }));
+    }
+
+    function handleOpenModal() {
+        setModalsList((prev) => ({ ...prev, projectModalIsVisible: true }));
+    }
 
     return (
         <div className="dashboard-container">
@@ -43,6 +53,7 @@ function DashboardPage(props) {
                 projects={projects}
                 activeProject={currentActiveProject}
                 changeActiveProject={changeActiveProject}
+                OnClick={handleOpenModal}
             />
             <div className="main-content-container">
                 <Header name={currentActiveProject.name} />
@@ -52,6 +63,12 @@ function DashboardPage(props) {
                     <div className="done">done</div>
                 </div>
             </div>
+            <Modal
+                isOpen={modalsList.projectModalIsVisible}
+                handleOpenModal={handleOpenModal}
+                handleCloseModal={handleCloseModal}
+                setProjects={setProjects}
+            />
         </div>
     );
 }

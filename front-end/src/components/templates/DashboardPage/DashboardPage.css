@@ -19,14 +19,9 @@
     flex-direction: column;
 }
 
-/* .header {
-    border: 1px solid white;
-    padding: 1rem;
-    
-} */
 
 .main-content {
-    background-color: aqua;
+    background-color: #21212D;
     display: flex;
     justify-content: space-evenly;
     flex: 1;
@@ -36,8 +31,8 @@
 .todo,
 .doing,
 .done {
-    background-color: brown;
-    border: 1px solid white;
+    background-color: #2C2C38;
+    margin: 1rem;
     max-width: 300px;
     flex: 1;
     gap: 1rem;
