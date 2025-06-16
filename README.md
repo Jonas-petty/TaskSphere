@@ -1,31 +1,63 @@
-# TaskSphere 
+# 📋 TaskSphere
 
-TaskSphere é uma aplicação web de gerenciamento de tarefas com foco em **colaboração e organização visual**, construída em **React** com suporte a **drag and drop** via **DnD Kit**, e persistência de dados com **json-server**.
+**TaskSphere** é uma aplicação web de gerenciamento de tarefas com suporte a projetos, arrastar-e-soltar entre colunas, e interface responsiva. O objetivo é facilitar a organização visual de tarefas em um modelo de kanban moderno.
+
+---
+
+![TaskSphere Screenshot](./assets/Screenshot_2025-06-16_23-43-00.png)
 
 ---
 
 ## 🚀 Funcionalidades
 
-- ✅ Login e cadastro de usuários
-- ✅ Criação e edição de projetos
-- ✅ Adição de tarefas por projeto
-- ✅ Interface de _drag & drop_ com 3 colunas: **Todo**, **In Progress**, **Done**
-- ✅ Atualização de status das tarefas com persistência via API fake (`json-server`)
-- ✅ Visual moderno com Atomic Design
+- ✅ Criação e gerenciamento de projetos
+- ✅ Adição de tarefas com título, status, imagem e data limite
+- ✅ Drag & Drop entre colunas: **Todo**, **In Progress**, **Done**
+- ✅ Interface responsiva com Atomic Design
+- ✅ Integração com API fake via `json-server` hospedado no Render
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## 🛠️ Tecnologias Utilizadas
 
-- [React](https://reactjs.org/) + Vite
-- [DnD Kit](https://dndkit.com/) — drag and drop moderno e acessível
-- [json-server](https://github.com/typicode/json-server) — mock backend RESTful
-- [React Router DOM](https://reactrouter.com/) — controle de rotas
-- [uuid](https://www.npmjs.com/package/uuid) — geração de IDs únicos
-- CSS puro
-- Atomic Design (estruturação de componentes em `atoms`, `molecules`, `organisms`)
+- [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- [DnD Kit](https://dndkit.com/) – drag-and-drop moderno e acessível
+- [json-server](https://github.com/typicode/json-server) – API fake REST
+- [React Select](https://react-select.com/)
+- [React Modal](https://reactcommunity.org/react-modal/)
+- CSS Flexbox + media queries
 
 ---
+
+## 🌐 Deploy
+
+### 🔸 Frontend (Netlify)
+📍 https://tasks-phere.netlify.app/ 
+
+### 🔸 Backend (json-server via Render)
+📍 https://tasksphere-api-4pmn.onrender.com
+
+---
+
+## 📦 Requisitos
+
+- Node.js >= 16
+- npm ou yarn
+
+---
+
+## ▶️ Como rodar localmente
+```
+# Clone o repositório
+git clone https://github.com/Jonas-petty/TaskSphere.git
+cd TaskSphere/front-end
+
+# Instale as dependências
+npm install
+
+# Inicie o app em modo de desenvolvimento
+npm run dev
+```
 
 ## 📂 Estrutura do Projeto (resumida)
 
@@ -45,65 +77,17 @@ public/
 db.json
 ```
 
----
+## 📌 Futuros Planos
 
-## 📦 Requisitos
-
-- Node.js >= 16
-- npm ou yarn
-
----
-
-## ▶️ Como rodar o projeto localmente
-
-1. **Clone o repositório:**
-
-```bash
-git clone https://github.com/Jonas-petty/TaskSphere.git
-cd TaskSphere
-```
-
-2. **Instale as dependências:**
-
-```bash
-npm install
-# ou
-yarn install
-```
-
-3. **Inicie o json-server:**
-
-```bash
-npx json-server --watch db.json --port 3000
-```
-
-4. **Rode a aplicação:**
-
-```bash
-npm run dev
-# ou
-yarn dev
-```
-Acesse em: http://localhost:5173
-
-## 📁 Banco de dados (db.json)
-
-O db.json simula um backend RESTful com os seguintes recursos:
-
- - `/users`
-
- - `/projects`
-
-- `/tasks`
-
-Você pode testar requisições com ferramentas como Postman ou Insomnia.
+- Back-end real com NodeJs ou Spring Boot;
+- Autenticação mais robusta;
+- Tela de conteúdo das Tasks;
+- Tela de conteúdo dos Projects;
+- Bug fixes;
 
 ## ✍️ Autor
-
-O db.json simula um backend RESTful com os seguintes recursos:
-
-Desenvolvido por [Jonas Felix](https://github.com/Jonas-petty) 🚀
+Desenvolvido por Jonas Felix 🚀
 Se curtir, ⭐ o repositório e contribua com sugestões ou issues!
 
-
-
+## 📄 Licença
+Este projeto está sob a licença MIT.
