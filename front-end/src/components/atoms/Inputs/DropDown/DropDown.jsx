@@ -1,7 +1,6 @@
 import Select from "react-select";
 
-function DropDown({ id, options, onChange }) {
-
+function DropDown({ id, options, onChange, isMulti = false }) {
     const sortedOptions = [...options].sort((a, b) => {
         return a.value.localeCompare(b.value);
     });
@@ -10,7 +9,7 @@ function DropDown({ id, options, onChange }) {
         <Select
             classNamePrefix="dropdown"
             inputId={id}
-            isMulti={true}
+            isMulti={isMulti}
             options={sortedOptions}
             onChange={(selectedOptions) => onChange(selectedOptions)}
             styles={{
@@ -23,6 +22,10 @@ function DropDown({ id, options, onChange }) {
                     ":hover": {
                         borderColor: "#f4f7fe",
                     },
+                }),
+                singleValue: (baseStyles, state) => ({
+                    ...baseStyles,
+                    color: "#FEFFFD",
                 }),
                 menuList: (baseStyles, state) => ({
                     ...baseStyles,

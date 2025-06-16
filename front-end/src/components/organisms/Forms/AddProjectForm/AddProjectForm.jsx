@@ -94,6 +94,7 @@ function AddProjectForm({ handleCloseModal, setProjects }) {
             <LabeledDropDown
                 id="users-dropdown"
                 label="Colaboradores"
+                isMulti={true}
                 options={users.map((user) => ({
                     value: user.name,
                     label: user.name,
