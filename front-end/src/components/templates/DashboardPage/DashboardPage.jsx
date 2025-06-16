@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import Header from "../../organisms/Header/Header";
 import Sidebar from "../../organisms/Sidebar/Sidebar";
 import Modal from "../Modal/Modal";
+import TasksContainer from "../../organisms/TasksContainer/TasksContainer";
 
 import "./DashboardPage.css";
 
 function DashboardPage(props) {
+    const taskColumns = ["todo", "in_progress", "done"];
     const [projects, setProjects] = useState([]);
-    const [modalsList, setModalsList] = useState({
-        projectModalIsVisible: false,
-    });
+    const [tasks, setTasks] = useState([]);
 
     const [currentActiveProject, setCurrentActiveProject] = useState({
         id: "",
@@ -20,6 +20,11 @@ function DashboardPage(props) {
         creator_id: "",
         collaborators: [],
     });
+    // const [currentActiveTasks, setCurrentActiveTasks] = useState([]);
+
+    const [modalsList, setModalsList] = useState({
+        projectModalIsVisible: false,
+    });
 
     useEffect(() => {
         fetch("http://localhost:3000/projects", { method: "GET" })
@@ -27,8 +32,21 @@ function DashboardPage(props) {
             .then((data) => {
                 setProjects(data);
                 setCurrentActiveProject(data[0]);
+                getTasks(data[0].id)
+                .then((projectTasks) => {
+                    setTasks(prev => projectTasks)
+                });
             });
     }, []);
+
+    async function getTasks(id) {
+        const res = await fetch("http://localhost:3000/tasks", {
+            method: "GET",
+        });
+        const data = await res.json();
+        const filteredTasks =  data.filter((task) => task.project_id === id);
+        return filteredTasks;
+    }
 
     function changeActiveProject(e) {
         const newActiveProjectName = e.target.innerText;
@@ -37,6 +55,11 @@ function DashboardPage(props) {
             (project) => project.name === newActiveProjectName
         );
         setCurrentActiveProject(newActiveProject);
+        getTasks(newActiveProject.id)
+        .then(projectTasks => {
+            setTasks(prev => projectTasks)
+        })
+        
     }
 
     function handleCloseModal() {
@@ -57,11 +80,9 @@ function DashboardPage(props) {
             />
             <div className="main-content-container">
                 <Header name={currentActiveProject.name} />
-                <div className="main-content">
-                    <div className="todo">todo</div>
-                    <div className="doing">doing</div>
-                    <div className="done">done</div>
-                </div>
+                <main className="main-content">
+                    <TasksContainer tasks={tasks} setTasks={setTasks} taskColumns={taskColumns} />
+                </main>
             </div>
             <Modal
                 isOpen={modalsList.projectModalIsVisible}
