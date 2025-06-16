@@ -16,7 +16,7 @@ import { useState } from "react";
 import TasksColumn from "../TasksColumn/TasksColumn";
 import Task from "../../molecules/Task/Task";
 
-import "./TasksContainer.css"
+import "./TasksContainer.css";
 
 function TasksContainer({ tasks, setTasks, taskColumns }) {
     const [activeTask, setActiveTask] = useState(null);
@@ -101,20 +101,18 @@ function TasksContainer({ tasks, setTasks, taskColumns }) {
             }}
             onDragCancel={() => setActiveTask(null)}
         >
-            <div className="tasks-container">
-                {taskColumns.map((taskColumn, index) => {
-                    return (
-                        <TasksColumn
-                            key={taskColumn}
-                            status={taskColumn}
-                            title={taskColumn.replace("_", " ").toUpperCase()}
-                            tasks={tasks.filter(
-                                (task) => task.status === taskColumn
-                            )}
-                        />
-                    );
-                })}
-            </div>
+            {taskColumns.map((taskColumn, index) => {
+                return (
+                    <TasksColumn
+                        key={taskColumn}
+                        status={taskColumn}
+                        title={taskColumn.replace("_", " ").toUpperCase()}
+                        tasks={tasks.filter(
+                            (task) => task.status === taskColumn
+                        )}
+                    />
+                );
+            })}
             <DragOverlay>
                 {activeTask ? (
                     <Task id={activeTask.id} title={activeTask.title} />

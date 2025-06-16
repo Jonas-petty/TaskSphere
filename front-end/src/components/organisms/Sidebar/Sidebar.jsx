@@ -6,6 +6,7 @@ import "./Sidebar.css";
 import { useState } from "react";
 
 function Sidebar({ projects, activeProject, changeActiveProject, onClick }) {
+    console.log(projects)
     const [isVisible, setIsVisible] = useState(true);
 
     const numberOfProjects = projects ? projects.length : 0;
@@ -41,12 +42,12 @@ function Sidebar({ projects, activeProject, changeActiveProject, onClick }) {
                     </li>
                 </ul>
             </div>
-            <span className="toggle-button">
+            {/* <span className="toggle-button">
                 <TransparentButton
                     text={"Esconder Barra Lateral"}
                     onClick={toggleSidebar}
                 />
-            </span>
+            </span> */}
         </aside>
     ) : (
         <></>

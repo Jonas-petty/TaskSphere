@@ -30,10 +30,15 @@ function DashboardPage(props) {
             .then((response) => response.json())
             .then((data) => {
                 setProjects(data);
-                setCurrentActiveProject(data[0]);
-                getTasks(data[0].id).then((projectTasks) => {
-                    setTasks((prev) => projectTasks);
-                });
+                if (data.length > 0) {
+                    setCurrentActiveProject(data[0]);
+                    getTasks(data[0].id).then((projectTasks) => {
+                        setTasks((prev) => projectTasks);
+                    });
+                } else {
+                    setCurrentActiveProject(null)
+                    setTasks([])
+                }
             });
     }, []);
 
@@ -76,7 +81,7 @@ function DashboardPage(props) {
             />
             <div className="main-content-container">
                 <Header
-                    name={currentActiveProject.name}
+                    name={currentActiveProject ? currentActiveProject.name : "Crie um novo Projeto"}
                     onClick={() => handleOpenModal("create_task")}
                 />
                 <main className="main-content">
