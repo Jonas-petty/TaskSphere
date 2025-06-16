@@ -27,6 +27,20 @@ function TasksContainer({ tasks, setTasks, taskColumns }) {
         })
     );
 
+    async function updateTaskStatusAPI(taskId, newStatus) {
+        try {
+            await fetch(`http://localhost:3000/tasks/${taskId}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ status: newStatus }),
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     function handleDragStart(event) {
         const draggedId = event.active.id;
         const found = tasks.find((task) => task.id === draggedId);
@@ -47,6 +61,7 @@ function TasksContainer({ tasks, setTasks, taskColumns }) {
 
         setTasks((prevTasks) => {
             if (activeContainer !== overContainer) {
+                updateTaskStatusAPI(activeId, overContainer);
                 return prevTasks.map((task) =>
                     task.id === activeId
                         ? { ...task, status: overContainer }
