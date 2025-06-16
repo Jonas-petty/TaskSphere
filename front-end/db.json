@@ -1,5 +1,139 @@
 {
-  "users": [],
-  "projects": [],
-  "tasks": []
+  "users": [
+    {
+      "id": "f9ed",
+      "name": "Virgil Herrera",
+      "email": "virgil.herrera@example.com",
+      "password": "123456"
+    },
+    {
+      "id": "f657",
+      "name": "Jose Rice",
+      "email": "jose.rice@example.com",
+      "password": "123456"
+    }
+  ],
+  "projects": [
+    {
+      "id": "bcd4",
+      "name": "Platform Launch",
+      "description": "Platform Launch workflow",
+      "start_date": "2025-06-16",
+      "end_date": "2025-06-23",
+      "creator_id": "e28b",
+      "collaborators": [
+        "f9ed"
+      ]
+    },
+    {
+      "id": "bd7e",
+      "name": "Marketing Plan",
+      "description": "Marketing Plan for the team",
+      "start_date": "2025-07-07",
+      "end_date": "2025-08-28",
+      "creator_id": "e28b",
+      "collaborators": [
+        "f9ed",
+        "f657"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "50ed",
+      "title": "Build UI for onboarding flow",
+      "status": "todo",
+      "due_date": "2025-06-24",
+      "image_url": "https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg",
+      "project_id": "bcd4",
+      "creator_id": "e28b"
+    },
+    {
+      "id": "e10a",
+      "title": "Build UI for search",
+      "status": "done",
+      "due_date": "2025-07-03",
+      "image_url": "https://images.pexels.com/photos/4145194/pexels-photo-4145194.jpeg",
+      "project_id": "bcd4",
+      "creator_id": "e28b"
+    },
+    {
+      "id": "8248",
+      "title": "Build settings UI",
+      "status": "todo",
+      "due_date": "2025-06-30",
+      "image_url": "https://images.pexels.com/photos/3278757/pexels-photo-3278757.jpeg",
+      "project_id": "bcd4",
+      "creator_id": "e28b"
+    },
+    {
+      "id": "4220",
+      "title": "QA and test all major user journeys",
+      "status": "todo",
+      "due_date": "2025-07-15",
+      "image_url": "https://images.pexels.com/photos/5428830/pexels-photo-5428830.jpeg",
+      "project_id": "bcd4",
+      "creator_id": "e28b"
+    },
+    {
+      "id": "63ff",
+      "title": "Design settings and search pages",
+      "status": "in_progress",
+      "due_date": "2025-07-07",
+      "image_url": "https://images.pexels.com/photos/4553182/pexels-photo-4553182.jpeg",
+      "project_id": "bcd4",
+      "creator_id": "e28b"
+    },
+    {
+      "id": "4545",
+      "title": "Add account management endpoints",
+      "status": "in_progress",
+      "due_date": "2025-07-28",
+      "image_url": "https://images.pexels.com/photos/4792285/pexels-photo-4792285.jpeg",
+      "project_id": "bcd4",
+      "creator_id": "e28b"
+    },
+    {
+      "id": "5a5c",
+      "title": "Design on boarding flow",
+      "status": "in_progress",
+      "due_date": "2025-08-06",
+      "image_url": "",
+      "project_id": "bcd4",
+      "creator_id": "e28b"
+    },
+    {
+      "id": "a7b9",
+      "title": "Add search endpoints",
+      "status": "in_progress",
+      "due_date": "2025-08-02",
+      "image_url": "",
+      "project_id": "bcd4",
+      "creator_id": "e28b"
+    },
+    {
+      "id": "7903",
+      "title": "Conduct 5 wireframe tests",
+      "status": "todo",
+      "due_date": "2025-06-26",
+      "image_url": "https://images.pexels.com/photos/6147365/pexels-photo-6147365.jpeg",
+      "creator_id": "e28b"
+    },
+    {
+      "id": "e4a1",
+      "title": "create wire frame prototype",
+      "status": "in_progress",
+      "due_date": "2025-07-05",
+      "image_url": "",
+      "creator_id": "e28b"
+    },
+    {
+      "id": "4607",
+      "title": "Review results of usability tests and iterate",
+      "status": "in_progress",
+      "due_date": "2025-07-03",
+      "image_url": "https://images.pexels.com/photos/7793987/pexels-photo-7793987.jpeg",
+      "creator_id": "e28b"
+    }
+  ]
 }
