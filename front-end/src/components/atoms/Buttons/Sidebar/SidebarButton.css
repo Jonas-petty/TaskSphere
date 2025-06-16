@@ -9,12 +9,26 @@
     padding: 0.5rem 1rem;
     margin-left: -1rem;
     border-radius: 0 2rem 2rem 0;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
+
+.sidebar-button > img {
+    filter: invert(60%) sepia(9%) saturate(496%) hue-rotate(186deg) brightness(91%) contrast(87%);
+}
+
+
 
 .active {
     color: #edebff;
     background-color: #645fc6;
     
+}
+
+.active > img {
+    filter: brightness(0) invert(1);
 }
 
 .active:hover {

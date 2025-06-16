@@ -1,3 +1,5 @@
+import sidebarIcon from "../../../../assets/white_sidebar.svg"
+
 import "./SidebarButton.css";
 
 function SideBarButton({
@@ -14,7 +16,8 @@ function SideBarButton({
             }`}
             type={type}
         >
-            {text}
+            <img src={sidebarIcon} alt="" />
+            {`${text}`}
         </button>
     );
 }
