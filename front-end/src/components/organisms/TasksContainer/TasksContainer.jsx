@@ -31,7 +31,7 @@ function TasksContainer({ tasks, setTasks, taskColumns }) {
 
     async function updateTaskStatusAPI(taskId, newStatus) {
         try {
-            await fetch(`http://localhost:3000/tasks/${taskId}`, {
+            await fetch(`https://tasksphere-api-4pmn.onrender.com/tasks/${taskId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",

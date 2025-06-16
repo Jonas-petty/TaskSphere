@@ -51,7 +51,7 @@ function AddTaskForm({ project, setTasks, handleCloseModal }) {
             body: JSON.stringify(updatedNewTask),
         };
 
-        fetch("http://localhost:3000/tasks", options).then((res) => {
+        fetch("https://tasksphere-api-4pmn.onrender.com/tasks", options).then((res) => {
             if (res.ok) {
                 setTasks((prev) => [...prev, updatedNewTask]);
                 handleCloseModal();

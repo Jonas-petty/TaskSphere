@@ -22,7 +22,7 @@ function AddProjectForm({ handleCloseModal, setProjects }) {
     const [currentSelectedUsers, setCurrentSelectedUsers] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3000/users", { method: "GET" })
+        fetch("https://tasksphere-api-4pmn.onrender.com/users", { method: "GET" })
             .then((response) => response.json())
             .then((data) => setUsers(data));
     }, []);
@@ -57,7 +57,7 @@ function AddProjectForm({ handleCloseModal, setProjects }) {
             body: JSON.stringify(updatedNewProject),
         };
 
-        fetch("http://localhost:3000/projects", options).then((res) => {
+        fetch("https://tasksphere-api-4pmn.onrender.com/projects", options).then((res) => {
             if (res.ok) {
                 setProjects((prev) => [...prev, updatedNewProject]);
                 handleCloseModal();

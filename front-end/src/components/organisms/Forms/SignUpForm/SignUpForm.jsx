@@ -24,7 +24,7 @@ function SignUpForm(props) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(userData),
         };
-        fetch("http://localhost:3000/users", options)
+        fetch("https://tasksphere-api-4pmn.onrender.com/users", options)
             .then((res) => {
                 if(res.ok) {
                     navigate("/dashboard")
