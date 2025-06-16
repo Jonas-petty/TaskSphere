@@ -1,8 +1,8 @@
 import "./DefaultButton.css";
 
-function DefaultButton({ type = "button", text = "button content" }) {
+function DefaultButton({ type = "button", text = "button content", onClick }) {
     return (
-        <button className="default-button" type={type}>
+        <button className="default-button" type={type} onClick={onClick}>
             {text}
         </button>
     );

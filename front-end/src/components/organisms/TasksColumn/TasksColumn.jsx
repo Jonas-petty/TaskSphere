@@ -32,6 +32,9 @@ function TasksColumn({ tasks, status, title }) {
                                 key={task.id}
                                 id={task.id}
                                 title={task.title}
+                                image_url={task.image_url}
+                                due_date={task.due_date}
+                                status={task.status}
                             />
                         ))
                     )}

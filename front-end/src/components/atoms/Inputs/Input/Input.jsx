@@ -11,7 +11,7 @@ function Input(props) {
             value={props.value}
             onChange={(e) => props.onChange(e.target.value)}
             minLength={3}
-            required
+            required={props.required}
         />
     );
 }

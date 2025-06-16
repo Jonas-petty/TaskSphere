@@ -13,15 +13,10 @@
     gap: 1rem;
 }
 
-.FormContainer input {
-    width: 400px;
-}
-
-
 .invalid input {
-    border: 1px solid #EA868F;
+    border: 1px solid #ea868f;
 }
 
 .form-description {
-    color: #EA868F;
+    color: #ea868f;
 }
