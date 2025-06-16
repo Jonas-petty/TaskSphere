@@ -26,7 +26,7 @@ function DashboardPage(props) {
     const [openModal, setOpenModal] = useState(null);
 
     useEffect(() => {
-        fetch("https://tasksphere-api-4pmn.onrender.com//projects", { method: "GET" })
+        fetch("https://tasksphere-api-4pmn.onrender.com/projects", { method: "GET" })
             .then((response) => response.json())
             .then((data) => {
                 setProjects(data);
@@ -43,7 +43,7 @@ function DashboardPage(props) {
     }, []);
 
     async function getTasks(id) {
-        const res = await fetch("https://tasksphere-api-4pmn.onrender.com//tasks", {
+        const res = await fetch("https://tasksphere-api-4pmn.onrender.com/tasks", {
             method: "GET",
         });
         const data = await res.json();
