@@ -3,11 +3,11 @@ import ProjectHeader from "../../atoms/Headers/ProjectHeader/ProjectHeader";
 
 import "./Header.css";
 
-function Header({ name = "Project Name" }) {
+function Header({ name = "Project Name", onClick }) {
     return (
         <header className="header">
             <ProjectHeader text={name} />
-            <DefaultButton type="button" text="+ Adicionar Nova Tasks" />
+            <DefaultButton type="button" text="+ Adicionar Nova Task" onClick={onClick} />
         </header>
     );
 }

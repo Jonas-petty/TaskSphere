@@ -8,7 +8,7 @@ import ModalHeader from "../../../atoms/Headers/ModalHeader/ModalHeader";
 
 import "./AddProjectForm.css";
 
-function AddProjectForm({ IsOpen, handleCloseModal, setProjects }) {
+function AddProjectForm({ handleCloseModal, setProjects }) {
     const [newProject, setNewProject] = useState({
         name: "",
         description: "",

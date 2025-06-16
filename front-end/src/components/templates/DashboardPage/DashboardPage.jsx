@@ -3,6 +3,7 @@ import Header from "../../organisms/Header/Header";
 import Sidebar from "../../organisms/Sidebar/Sidebar";
 import Modal from "../Modal/Modal";
 import TasksContainer from "../../organisms/TasksContainer/TasksContainer";
+import AddProjectForm from "../../organisms/Forms/AddProjectForm/AddProjectForm";
 
 import "./DashboardPage.css";
 
@@ -20,11 +21,12 @@ function DashboardPage(props) {
         creator_id: "",
         collaborators: [],
     });
-    // const [currentActiveTasks, setCurrentActiveTasks] = useState([]);
 
-    const [modalsList, setModalsList] = useState({
-        projectModalIsVisible: false,
-    });
+    // const [modalsList, setModalsList] = useState({
+    //     projectModalIsVisible: false,
+    // });
+
+    const [openModal, setOpenModal] = useState(null);
 
     useEffect(() => {
         fetch("http://localhost:3000/projects", { method: "GET" })
@@ -32,9 +34,8 @@ function DashboardPage(props) {
             .then((data) => {
                 setProjects(data);
                 setCurrentActiveProject(data[0]);
-                getTasks(data[0].id)
-                .then((projectTasks) => {
-                    setTasks(prev => projectTasks)
+                getTasks(data[0].id).then((projectTasks) => {
+                    setTasks((prev) => projectTasks);
                 });
             });
     }, []);
@@ -44,7 +45,7 @@ function DashboardPage(props) {
             method: "GET",
         });
         const data = await res.json();
-        const filteredTasks =  data.filter((task) => task.project_id === id);
+        const filteredTasks = data.filter((task) => task.project_id === id);
         return filteredTasks;
     }
 
@@ -55,19 +56,17 @@ function DashboardPage(props) {
             (project) => project.name === newActiveProjectName
         );
         setCurrentActiveProject(newActiveProject);
-        getTasks(newActiveProject.id)
-        .then(projectTasks => {
-            setTasks(prev => projectTasks)
-        })
-        
+        getTasks(newActiveProject.id).then((projectTasks) => {
+            setTasks((prev) => projectTasks);
+        });
     }
 
     function handleCloseModal() {
-        setModalsList((prev) => ({ ...prev, projectModalIsVisible: false }));
+        setOpenModal(null);
     }
 
-    function handleOpenModal() {
-        setModalsList((prev) => ({ ...prev, projectModalIsVisible: true }));
+    function handleOpenModal(modal) {
+        setOpenModal(modal);
     }
 
     return (
@@ -76,20 +75,33 @@ function DashboardPage(props) {
                 projects={projects}
                 activeProject={currentActiveProject}
                 changeActiveProject={changeActiveProject}
-                OnClick={handleOpenModal}
+                onClick={() => handleOpenModal("create_project")}
             />
             <div className="main-content-container">
-                <Header name={currentActiveProject.name} />
+                <Header
+                    name={currentActiveProject.name}
+                    onClick={() => handleOpenModal("create_task")}
+                />
                 <main className="main-content">
-                    <TasksContainer tasks={tasks} setTasks={setTasks} taskColumns={taskColumns} />
+                    <TasksContainer
+                        tasks={tasks}
+                        setTasks={setTasks}
+                        taskColumns={taskColumns}
+                    />
                 </main>
             </div>
             <Modal
-                isOpen={modalsList.projectModalIsVisible}
+                isOpen={!!openModal}
                 handleOpenModal={handleOpenModal}
                 handleCloseModal={handleCloseModal}
-                setProjects={setProjects}
-            />
+            >
+                {openModal === "create_project" && (
+                    <AddProjectForm
+                        handleCloseModal={handleCloseModal}
+                        setProjects={setProjects}
+                    />
+                )}
+            </Modal>
         </div>
     );
 }

@@ -1,9 +1,8 @@
 import ReactModal from "react-modal";
-import AddProjectForm from "../../organisms/Forms/AddProjectForm/AddProjectForm";
 
 import "./Modal.css";
 
-function Modal({ isOpen, handleCloseModal }) {
+function Modal({ isOpen, handleCloseModal, children }) {
     return (
         <ReactModal
             className="project-modal"
@@ -15,7 +14,7 @@ function Modal({ isOpen, handleCloseModal }) {
             ariaHideApp={true}
             appElement={document.getElementById("root")}
         >
-            <AddProjectForm IsOpen={isOpen} handleCloseModal={handleCloseModal}/>
+            {children}
         </ReactModal>
     );
 }

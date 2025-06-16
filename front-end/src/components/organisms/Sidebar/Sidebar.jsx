@@ -5,7 +5,7 @@ import TransparentButton from "../../atoms/Buttons/Transparent/TransparentButton
 import "./Sidebar.css";
 import { useState } from "react";
 
-function Sidebar({ projects, activeProject, changeActiveProject, OnClick }) {
+function Sidebar({ projects, activeProject, changeActiveProject, onClick }) {
     const [isVisible, setIsVisible] = useState(true);
 
     const numberOfProjects = projects ? projects.length : 0;
@@ -37,7 +37,7 @@ function Sidebar({ projects, activeProject, changeActiveProject, OnClick }) {
                 <ul className="projects-list">
                     {projectsList}
                     <li>
-                        <TransparentButton text={"+ Criar Novo Projeto"} onClick={OnClick} />
+                        <TransparentButton text={"+ Criar Novo Projeto"} onClick={onClick} />
                     </li>
                 </ul>
             </div>
