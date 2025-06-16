@@ -67,7 +67,7 @@ function AddProjectForm({ handleCloseModal, setProjects }) {
 
     return (
         <form className="add-project-form" action={handleSubmit}>
-            <ModalHeader text="Adicionar Novo Projeto"/>
+            <ModalHeader text="Adicionar Novo Projeto" />
             <LabeledInput
                 id="title"
                 label="Título"
@@ -94,7 +94,10 @@ function AddProjectForm({ handleCloseModal, setProjects }) {
             <LabeledDropDown
                 id="users-dropdown"
                 label="Colaboradores"
-                items={users}
+                options={users.map((user) => ({
+                    value: user.name,
+                    label: user.name,
+                }))}
                 onChange={setCurrentSelectedUsers}
             />
 

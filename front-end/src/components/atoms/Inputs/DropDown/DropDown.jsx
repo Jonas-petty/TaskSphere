@@ -1,10 +1,6 @@
 import Select from "react-select";
 
-function DropDown({ id, items, onChange }) {
-    const options = items.map((item) => ({
-        value: item.name,
-        label: item.name,
-    }));
+function DropDown({ id, options, onChange }) {
 
     const sortedOptions = [...options].sort((a, b) => {
         return a.value.localeCompare(b.value);
