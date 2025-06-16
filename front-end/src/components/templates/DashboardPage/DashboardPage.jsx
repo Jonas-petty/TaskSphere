@@ -6,6 +6,7 @@ import TasksContainer from "../../organisms/TasksContainer/TasksContainer";
 import AddProjectForm from "../../organisms/Forms/AddProjectForm/AddProjectForm";
 
 import "./DashboardPage.css";
+import AddTaskForm from "../../organisms/Forms/AddTaskForm/AddTaskForm";
 
 function DashboardPage(props) {
     const taskColumns = ["todo", "in_progress", "done"];
@@ -21,10 +22,6 @@ function DashboardPage(props) {
         creator_id: "",
         collaborators: [],
     });
-
-    // const [modalsList, setModalsList] = useState({
-    //     projectModalIsVisible: false,
-    // });
 
     const [openModal, setOpenModal] = useState(null);
 
@@ -99,6 +96,13 @@ function DashboardPage(props) {
                     <AddProjectForm
                         handleCloseModal={handleCloseModal}
                         setProjects={setProjects}
+                    />
+                )}
+                {openModal === "create_task" && (
+                    <AddTaskForm
+                        project={currentActiveProject}
+                        handleCloseModal={handleCloseModal}
+                        setTasks={setTasks}
                     />
                 )}
             </Modal>
