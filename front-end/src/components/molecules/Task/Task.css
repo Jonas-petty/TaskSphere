@@ -4,8 +4,10 @@
     padding: 1rem;
     border-radius: .5rem;
     touch-action: none;
-
-
-    margin: 1rem;
  
+}
+
+
+.task:hover {
+    cursor: grab;
 }

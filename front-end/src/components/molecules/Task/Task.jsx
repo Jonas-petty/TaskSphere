@@ -9,7 +9,7 @@ function Task({ id, title }) {
 
     const style = {
         transition,
-        transform: CSS.Translate.toString(transform),
+        transform: CSS.Transform.toString(transform),
     };
 
     return (

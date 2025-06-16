@@ -1,18 +1,23 @@
 import {
-    closestCorners,
+    rectIntersection,
+    pointerWithin,
     DndContext,
+    DragOverlay,
     KeyboardSensor,
     PointerSensor,
     TouchSensor,
     useSensor,
     useSensors,
+    closestCenter,
 } from "@dnd-kit/core";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
-import {restrictToWindowEdges} from "@dnd-kit/modifiers"
+import { restrictToWindowEdges } from "@dnd-kit/modifiers";
+import { useState } from "react";
 import TasksColumn from "../TasksColumn/TasksColumn";
+import Task from "../../molecules/Task/Task";
 
-function TasksContainer({ tasks, setTasks }) {
-    const taskColumns = ["todo", "in_progress", "done"];
+function TasksContainer({ tasks, setTasks, taskColumns }) {
+    const [activeTask, setActiveTask] = useState(null);
 
     const sensors = useSensors(
         useSensor(PointerSensor),
@@ -22,32 +27,80 @@ function TasksContainer({ tasks, setTasks }) {
         })
     );
 
-    function getTaskPosition(tasks, id) {
-        return tasks.findIndex((task) => task.id === id);
+    function handleDragStart(event) {
+        const draggedId = event.active.id;
+        const found = tasks.find((task) => task.id === draggedId);
+        if (found) setActiveTask(found);
     }
 
     function handleDragEnd(event) {
         const { active, over } = event;
+        if (!over) return;
 
-        if (active.id === over.id) return;
+        const activeId = active.id;
+        const overId = over.id;
 
-        setTasks((tasks) => {
-            const originalPosition = getTaskPosition(tasks, active.id);
-            const newPosition = getTaskPosition(tasks, over.id);
+        const activeContainer = active.data.current?.sortable.containerId;
+        const overContainer = over.data.current?.sortable.containerId;
 
-            return arrayMove(tasks, originalPosition, newPosition);
+        if (!activeContainer || !overContainer) return;
+
+        setTasks((prevTasks) => {
+            if (activeContainer !== overContainer) {
+                return prevTasks.map((task) =>
+                    task.id === activeId
+                        ? { ...task, status: overContainer }
+                        : task
+                );
+            }
+            const tasksInColumn = prevTasks.filter(
+                (task) => task.status === activeContainer
+            );
+            const originalIndex = tasksInColumn.findIndex(
+                (task) => task.id === activeId
+            );
+            const newIndex = tasksInColumn.findIndex(
+                (task) => task.id === overId
+            );
+
+            const reordered = arrayMove(tasksInColumn, originalIndex, newIndex);
+
+            const otherTasks = prevTasks.filter(
+                (task) => task.status !== activeContainer
+            );
+            return [...otherTasks, ...reordered];
         });
-        console.log(tasks);
     }
 
     return (
         <DndContext
             modifiers={[restrictToWindowEdges]}
             sensors={sensors}
-            collisionDetection={closestCorners}
-            onDragEnd={handleDragEnd}
+            collisionDetection={closestCenter}
+            onDragStart={handleDragStart}
+            onDragEnd={(event) => {
+                handleDragEnd(event);
+                setActiveTask(null);
+            }}
+            onDragCancel={() => setActiveTask(null)}
         >
-            <TasksColumn tasks={tasks} />
+            {taskColumns.map((taskColumn, index) => {
+                return (
+                    <TasksColumn
+                        key={taskColumn}
+                        status={taskColumn}
+                        title={taskColumn.replace("_", " ").toUpperCase()}
+                        tasks={tasks.filter(
+                            (task) => task.status === taskColumn
+                        )}
+                    />
+                );
+            })}
+            <DragOverlay>
+                {activeTask ? (
+                    <Task id={activeTask.id} title={activeTask.title} />
+                ) : null}
+            </DragOverlay>
         </DndContext>
     );
 }

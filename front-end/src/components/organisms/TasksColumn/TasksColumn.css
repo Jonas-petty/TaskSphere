@@ -1,5 +1,20 @@
 .task-column {
-    border: 1px solid white;
-    width: 30%;
-    max-width: 400px;
+    min-height: 200px;
+    width: 33%;
+    margin: 1rem;
+}
+
+.task-column-content {
+    flex: 1;
+    min-height: 60px;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.empty-placeholder {
+    text-align: center;
+    color: #aaa;
+    pointer-events: none;
 }
